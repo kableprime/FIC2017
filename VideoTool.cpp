@@ -235,6 +235,12 @@ int main(int argc, char* argv[])
 
 		//store image to matrix
 		capture.read(cameraFeed);
+
+    if(cameraFeed.empty())
+    {
+       printf("Camera feed is empty");
+       exit(1);
+    }
 		//convert frame from BGR to HSV colorspace
 		cvtColor(cameraFeed, HSV, COLOR_BGR2HSV);
 		//filter HSV image between values and store filtered image to
